@@ -1,12 +1,13 @@
 import logo from '../assets/logo.webp';  // Importe a imagem aqui
 import { Link } from "react-router-dom";
 import {BiCameraMovie, BiSearchAlt2} from 'react-icons/bi'
+import './Navbar.css'
 
 const Navbar = () => {
   return (
     <nav id='navbar'>
-        <h2>
-          <img 
+      <div className='logo'>
+                  <img 
             src={logo} 
             alt="CineStream Logo" 
             style={{
@@ -16,8 +17,12 @@ const Navbar = () => {
               objectFit: 'cover',  // Garante que a imagem não distorça
             }} 
           />
-          <Link to="/"><BiCameraMovie></BiCameraMovie>CineStream</Link>
+        <h2>
+
+          <Link to="/"><BiCameraMovie></BiCameraMovie> CineStream</Link>
         </h2>
+      </div>
+
         <form>
             <input type="text" placeholder='Busque um filme' />
             <button type='submit'>
