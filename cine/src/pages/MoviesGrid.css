@@ -60,3 +60,93 @@
     background-color: transparent;
     color: #f7d354;
 }
+
+/* CATEGORIAS*/
+/* Estilos para o menu de categorias */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  
+  /* Estilos dos botões de categoria */
+  .category-menu button {
+    padding: 5px 10px;
+    background-color: #f7d354; /* Cor amarela */
+    color: #333; /* Texto escuro */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 30px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Suaviza a transição */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  /* Efeito de hover nos botões */
+  .category-menu button:hover {
+    background-color: #ff9f00; /* Cor de hover mais forte */
+    color: #fff; /* Texto branco no hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
+    transform: scale(1.1); /* Leve aumento no tamanho */
+  }
+  
+  /* Estilo para o botão ativo (categoria selecionada) */
+  .category-menu button.active {
+    background-color: #ff5722; /* Cor laranja para o botão ativo */
+    color: white;
+    border: 2px solid #ff5722; /* Borda laranja no ativo */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+    transform: scale(1.1); /* Aumento no botão ativo */
+  }
+  
+  /* Responsividade - ajusta o tamanho e o layout para telas menores */
+  @media (max-width: 768px) {
+    .category-menu {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    .category-menu button {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 1rem;
+    }
+  }
+  
+  /* FIlmes e series*/
+  /* Botões de Filmes e Séries */
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-button {
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin: 0 10px;
+}
+
+.toggle-button:hover {
+  background-color: #ddd;
+}
+
+.toggle-button.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.toggle-button svg {
+  font-size: 20px;
+}

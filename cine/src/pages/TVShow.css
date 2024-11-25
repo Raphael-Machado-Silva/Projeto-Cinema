@@ -1,0 +1,77 @@
+/* Estilo geral da página de filme/ série */
+.movie-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.movie-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.movie-header h1 {
+  font-size: 2.5rem;
+  margin-right: 10px; /* Espaço entre título e ano */
+}
+
+.movie-header .release-year {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.movie-trailer {
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #333;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.movie-trailer iframe {
+  border-radius: 8px;
+}
+
+.trailer-title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.movie-info {
+  margin-top: 20px;
+}
+
+.movie-info .info {
+  margin-bottom: 15px;
+}
+
+.movie-info .info h3 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaço entre o ícone e o texto */
+}
+
+.movie-info .info p {
+  font-size: 1rem;
+}
+
+.movie-info .description p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Estiliza os ícones */
+.movie-info .info svg {
+  color: #f7d354; /* Cor dos ícones */
+}
+
+.movie-info .description p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
