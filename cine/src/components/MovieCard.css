@@ -1,0 +1,78 @@
+.movie-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Mantém o tamanho da imagem e aparência original */
+  .movie-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease; /* Suaviza a opacidade ao hover */
+  }
+  
+  /* Elemento que será exibido no hover */
+  .movie-card .hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo preto translúcido */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease; /* Suaviza a transição no hover */
+  }
+  
+  /* Exibe as informações ao passar o mouse */
+  .movie-card:hover .hover-info {
+    opacity: 1;
+  }
+  
+  /* Título do filme */
+  .movie-card .hover-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Nota do filme */
+  .movie-card .hover-info .rating {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  /* Descrição do filme */
+  .movie-card .hover-info .description {
+    font-size: 0.85rem; /* Tamanho do texto ajustado */
+    margin-bottom: 15px;
+    line-height: 1.4; /* Aumenta a altura da linha para melhorar a leitura */
+    text-align: center; /* Garante que o texto ficará centralizado */
+    padding: 0 10px; /* Adiciona um pouco de espaçamento nas laterais para o texto não colar nas bordas */
+    word-wrap: break-word; /* Quebra palavras longas e evita que o texto saia do bloco */
+  }
+  
+  /* Botão de detalhes */
+  .movie-card .hover-info a {
+    color: white;
+    background-color: #ff5722;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .movie-card .hover-info a:hover {
+    background-color: #e64a19;
+  }
+  
