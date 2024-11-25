@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { BsGraphUp, BsWallet2, BsHourglassSplit, BsFillFileEarmarkTextFill } from 'react-icons/bs';
+import { BsStar, BsFillCalendarDateFill, BsFillTvFill, BsTag, BsFillCircleFill, BsFillFileEarmarkTextFill } from 'react-icons/bs'; // Novos ícones para status e gêneros
 import './TVShow.css'; // Importando o CSS
 
 const TVShow = () => {
@@ -35,7 +35,7 @@ const TVShow = () => {
 
       } catch (err) {
         console.error('Erro ao buscar série: ', err);
-        setError(err.message);
+        setError('Falha ao carregar os dados da série');
       }
     };
 
@@ -43,21 +43,31 @@ const TVShow = () => {
   }, [id]);
 
   if (error) {
-    return <div>{error}</div>;
+    return <div>{error}</div>; // Mostra uma mensagem de erro se houver
   }
 
   if (!tvShow) {
-    return <div>Carregando...</div>;
+    return <div>Carregando...</div>; // Enquanto os dados não são carregados, exibe "Carregando..."
   }
 
-  const formatCurrency = (value) => {
-    if (value !== undefined && value !== null) {
-      return value.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL',
-      });
+  const formatGenres = (genres) => {
+    if (genres && genres.length > 0) {
+      return genres.map(genre => genre.name).join(", ");
     }
-    return "Valor não disponível";
+    return "Gêneros não disponíveis";
+  };
+
+  const formatStatus = (status) => {
+    switch (status) {
+      case 'Returning Series':
+        return 'Série em Andamento';
+      case 'Ended':
+        return 'Série Finalizada';
+      case 'Canceled':
+        return 'Série Cancelada';
+      default:
+        return 'Status desconhecido';
+    }
   };
 
   return (
@@ -88,30 +98,44 @@ const TVShow = () => {
       <div className="movie-info">
         <div className="info">
           <h3>
-            <BsWallet2 /> Orçamento:
+            <BsStar /> Classificação Média:
           </h3>
-          <p>{formatCurrency(tvShow.budget)}</p>
+          <p>{tvShow.vote_average ? tvShow.vote_average : 'Sem avaliação'}</p> {/* Exibe a classificação */}
         </div>
 
         <div className="info">
           <h3>
-            <BsGraphUp /> Receita Recolhida:
+            <BsFillCalendarDateFill /> Número de Temporadas:
           </h3>
-          <p>{formatCurrency(tvShow.revenue)}</p>
+          <p>{tvShow.number_of_seasons ? tvShow.number_of_seasons : 'Sem informações'}</p> {/* Exibe o número de temporadas */}
         </div>
 
         <div className="info">
           <h3>
-            <BsHourglassSplit /> Duração por Episódio:
+            <BsFillTvFill /> Número de Episódios:
           </h3>
-          <p>{tvShow.episode_run_time[0]} min</p>
+          <p>{tvShow.number_of_episodes ? tvShow.number_of_episodes : 'Sem informações'}</p> {/* Exibe o número de episódios */}
+        </div>
+
+        <div className="info">
+          <h3>
+            <BsFillCircleFill /> Status:
+          </h3>
+          <p>{formatStatus(tvShow.status)}</p> {/* Exibe o status da série em português */}
+        </div>
+
+        <div className="info">
+          <h3>
+            <BsTag /> Gêneros:
+          </h3>
+          <p>{formatGenres(tvShow.genres)}</p> {/* Exibe os gêneros da série */}
         </div>
 
         <div className="info description">
           <h3>
             <BsFillFileEarmarkTextFill /> Descrição:
           </h3>
-          <p>{tvShow.overview}</p>
+          <p>{tvShow.overview ? tvShow.overview : 'Sem descrição disponível'}</p> {/* Descrição da série */}
         </div>
       </div>
     </div>
