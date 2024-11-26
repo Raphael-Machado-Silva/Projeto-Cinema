@@ -1,49 +1,50 @@
-import { useState, useEffect } from "react"
-import { useSearchParams } from "react-router-dom"/*pegar o valor da url*/
-import MovieCard from "../components/MovieCard"
-import './MoviesGrid.css'
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom"; // Para pegar o valor da URL
+import MovieCard from "../components/MovieCard";
+import './MoviesGrid.css';
 
-const searchURL = import.meta.env.VITE_SEARCH
-const apiKey = import.meta.env.VITE_API_KEY
+const searchMovieURL = import.meta.env.VITE_SEARCH; // URL para filmes
+const searchSeriesURL = "https://api.themoviedb.org/3/search/tv"; // URL para séries (adicione ao .env se preferir)
+const apiKey = import.meta.env.VITE_API_KEY;
 
 const Search = () => {
+  const [searchParams] = useSearchParams();
+  const [movies, setMovies] = useState([]);
+  const query = searchParams.get("q"); // Query de busca
+  const isMovies = searchParams.get("isMovies") === "true"; // Estado recebido via URL
 
-  const [searchParams] = useSearchParams()
+  // Função para buscar filmes ou séries
+  const getSearchedContent = async (url) => {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        throw new Error("Erro ao buscar conteúdo");
+      }
+      const data = await res.json();
+      setMovies(data.results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  const [movies, setMovies] = useState([])
-  const query = searchParams.get("q")
-
-
-  const getSearchedMovies = async (url) => {
-    const res = await fetch(url)
-    const data = await res.json()
-
-    setMovies(data.results)
-  }
-
-  useEffect(()=>{ // carregar filmes quando a pag for carregada
-    // montando a URL para fzr isso
-
-    const searchWhithQueryURL = `${searchURL}?api_key=${apiKey}&query=${query}&language=pt-BR`
-    
-    getSearchedMovies(searchWhithQueryURL) // enviando a URL para função que pega os filmes
-
-  }, [query])
-
+  useEffect(() => {
+    // Alterna entre as URLs para filmes ou séries
+    const searchWithQueryURL = `${isMovies ? searchMovieURL : searchSeriesURL}?api_key=${apiKey}&query=${query}&language=pt-BR`;
+    getSearchedContent(searchWithQueryURL);
+  }, [query, isMovies]); // Atualiza sempre que a query ou o estado de "isMovies" mudar
 
   return (
     <div className="container">
-      <h2 className="title">Resultados para: 
-        <span className="query-text"> {query}</span>
+      <h2 className="title">
+        Resultados para: <span className="query-text">{query}</span>
       </h2>
-
       <div className="movies-container">
         {movies.length === 0 && <p>Carregando...</p>}
-        {movies.length > 0 && movies.map((movie) => <MovieCard movie={movie} key={movie.id}></MovieCard>)}
+        {movies.length > 0 &&
+          movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Search
-
+export default Search;
