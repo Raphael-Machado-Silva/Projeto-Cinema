@@ -20,7 +20,7 @@
 
 /* alterar a quantidade de filmes por linha mexe na width */
 .movies-container div{ 
-    width: 45%;
+    width: 32%;
     color: white;
     margin-bottom: 2.5rem;
     display: flex;
@@ -32,12 +32,6 @@
 
 .movies-container div img{
     max-width: 100%;
-}
-
-.movies-container div img, 
-.movies-container div p,
-.movies-container div h2{
-    margin-bottom: 1rem;
 }
 
 .movies-container div svg{
@@ -89,7 +83,7 @@
     background-color: #ff9f00; /* Cor de hover mais forte */
     color: #fff; /* Texto branco no hover */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Aumenta a sombra */
-    transform: scale(1.1); /* Leve aumento no tamanho */
+    transform: scale(1); /* Leve aumento no tamanho */
   }
   
   /* Estilo para o botão ativo (categoria selecionada) */
@@ -106,12 +100,22 @@
     .category-menu {
       flex-direction: column;
       gap: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  
     .category-menu button {
-      width: 100%;
+      width: 300px;
       padding: 12px 20px;
       font-size: 1rem;
+    }
+    .movies-container div{
+      width: 62%;
+    }
+    .movies-container{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
   

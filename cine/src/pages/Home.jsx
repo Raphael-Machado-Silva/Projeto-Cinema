@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { FaFilm, FaTv } from 'react-icons/fa'; // Ícones de filme e TV
-import { Link } from "react-router-dom"; // Para navegação
 import MovieCard from '../components/MovieCard';
 import CategoryMenu from '../components/CategoryMenu'; // Componente para menu de categorias
 import './MoviesGrid.css';
@@ -36,7 +35,8 @@ const Home = () => {
         throw new Error('Falha ao carregar conteúdo');
       }
       const data = await res.json();
-      setMovies(data.results);
+      const itemsToDisplay = data.results.slice(0, 18); // Pega os 18 primeiros itens
+      setMovies(itemsToDisplay); // Atualiza o estado com os 18 itens
       setLoading(false);
     } catch (err) {
       setError(err.message);
@@ -54,13 +54,13 @@ const Home = () => {
       
       {/* Botões para alternar entre Filmes e Séries */}
       <div className="toggle-buttons">
-        <button 
+        <button  style={{ border: '1px solid black' }}
           className={`toggle-button ${isMovies ? 'active' : ''}`}
           onClick={() => setIsMovies(true)}
         >
           <FaFilm style={{ marginRight: '8px' }} /> Filmes
         </button>
-        <button 
+        <button  style={{ border: '1px solid black' }}
           className={`toggle-button ${!isMovies ? 'active' : ''}`}
           onClick={() => setIsMovies(false)}
         >
@@ -79,11 +79,6 @@ const Home = () => {
           movies.map((movie) => <MovieCard movie={movie} key={movie.id} />)
         }
         {!loading && !error && movies.length === 0 && <p>Nenhum conteúdo encontrado.</p>}
-      </div>
-
-      {/* Link para pesquisa com passagem do estado isMovies */}
-      <div className="search-link">
-        <Link to={`/search?isMovies=${isMovies}`}>Ir para Pesquisa</Link>
       </div>
     </div>
   );
