@@ -4,7 +4,7 @@
 
 - Pesquise por filmes e séries.
 - Veja os filmes mais recentes e mais bem avaliados.
-- Assista aos trailers e obtenha detalhes como sinopse, elenco e classificação.
+- Assista aos trailers e obtenha detalhes como sinopse, tempo, ano e classificação.
 
 ## 🚀 Tecnologias Utilizadas
 
