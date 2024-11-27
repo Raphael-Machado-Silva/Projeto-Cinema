@@ -1,7 +1,30 @@
 /* App.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Caso precise redefinir outros elementos */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 /* Tema Light */
-body.light {
+  body.light {
     background-color: #f5f5f5;
     color: black;
   }
@@ -45,6 +68,7 @@ body.light {
 
   body.light .movie-page{
     background-color: white;
+    margin-top: 3vh;
     color: black;
   }
   body.light .release-year{
@@ -80,6 +104,7 @@ body.light {
   }
 
   body.dark .movie-page{
+    margin-top: 3vh;
     background-color: #151A23;
   }
   body.dark .movie-trailer{

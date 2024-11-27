@@ -67,3 +67,57 @@
       font-size: 1.1em;
     }
   }
+
+  /* Estilos do switch toggle */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background-color: var(--switch-bg);
+  border-radius: 50px;
+  position: relative;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.theme-switch .switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--switch-thumb);
+  color: var(--switch-color);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Posiciona o switch no modo escuro */
+.theme-switch .dark {
+  transform: translateX(30px);
+}
+
+/* Efeito hover para o switch */
+.theme-switch:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Variáveis de cor para os temas */
+body.light {
+  --switch-bg: #ff5722; /* Laranja */
+  --switch-thumb: #ffffff; /* Branco */
+  --switch-color: black;
+}
+
+body.dark {
+  --switch-bg: #F7D354; /* Preto translúcido */
+  --switch-thumb: #003366; /* Azul escuro */
+  --switch-color: white;
+}
