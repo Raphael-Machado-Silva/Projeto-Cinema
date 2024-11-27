@@ -1,37 +1,33 @@
 # PopcornPlay 🎬🍿
 
-**PopcornPlay** é um site moderno e interativo onde os usuários podem explorar filmes e séries. Nele, você pode:
-- Pesquisar por filmes e séries
-- Ver os mais novos lançamentos
-- Acessar os filmes e séries mais bem avaliados
-- Assistir trailers e obter informações detalhadas sobre cada título
+**PopcornPlay** é um site onde você pode explorar filmes e séries de forma simples e interativa. Com uma interface moderna, o projeto permite que o usuário:
 
-Com uma interface simples e eficaz, o **PopcornPlay** é ideal para quem ama o mundo do cinema e das séries!
+- Pesquise por filmes e séries.
+- Veja os filmes mais recentes e mais bem avaliados.
+- Assista aos trailers e obtenha detalhes como sinopse, elenco e classificação.
 
 ## 🚀 Tecnologias Utilizadas
 
-O **PopcornPlay** foi desenvolvido utilizando as seguintes tecnologias:
+O projeto foi desenvolvido utilizando as seguintes tecnologias:
 
-| Tecnologia        | Porcentagem |
-|-------------------|-------------|
-| React.js          | 70%         |
-| CSS               | 20%         |
-| gh-pages (deploy) | 10%         |
+- **React.js** (Frontend)
+- **CSS** (Estilização)
+- **React Router** (Navegação)
+- **GitHub Pages** (Deploy)
 
-Essas tecnologias foram escolhidas para garantir uma interface interativa e uma ótima experiência de usuário.
+### 📊 Porcentagem de Uso das Tecnologias
+- **React.js**: 70%
+- **CSS**: 20%
+- **GitHub Pages (Deploy)**: 10%
 
-## 📊 Estatísticas de Uso das Tecnologias
+### 📍 API Utilizada
+Este projeto utiliza a **TMDB (The Movie Database)** API para buscar informações sobre filmes e séries, como detalhes, trailers e imagens.
 
-Aqui está uma representação visual do uso das tecnologias no projeto **PopcornPlay**:
+## 💻 Como Rodar o Projeto Localmente
 
-![Gráfico de Pizza - Tecnologias](https://quickchart.io/chart?c={type:'pie',data:{labels:['React.js','CSS','gh-pages (deploy)'],datasets:[{data:[70,20,10]}]}})
+Para rodar o projeto na sua máquina, siga os passos abaixo:
 
-## 💻 Como Rodar o Projeto
-
-Para rodar o **PopcornPlay** localmente, siga os passos abaixo:
-
-1. **Clone este repositório:**
+1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/seu-usuario/popcornplay.git
-
+   git clone https://github.com/Raphael-Machado-Silva/popcornplay.git
