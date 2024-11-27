@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { GiPopcorn } from 'react-icons/gi'; // Ícone de pipoca
@@ -8,6 +8,14 @@ import './Navbar.css';
 const Navbar = ({ toggleTheme }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 520);
+
+  // Atualiza o estado para saber se a tela é pequena
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 520);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +51,7 @@ const Navbar = ({ toggleTheme }) => {
 
       {/* Switch Toggle */}
       <div className="theme-switch" onClick={toggleTheme}>
-        <span className={`switch ${isLightMode ? "light" : "dark"}`}>
+        <span className={`switch ${isLightMode ? "light" : "dark"} ${isSmallScreen ? "no-move" : ""}`}>
           {isLightMode ? "☀️" : "🌙"}
         </span>
       </div>
